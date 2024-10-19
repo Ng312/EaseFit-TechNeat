@@ -4,13 +4,7 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-   apiKey: "AIzaSyDY32CjxqTnsUlmLSg_JDoYKaO5nSqMcKY",
-   authDomain: "mockup-3b1d2.firebaseapp.com",
-   projectId: "mockup-3b1d2",
-   storageBucket: "mockup-3b1d2.appspot.com",
-   messagingSenderId: "1000372772813",
-   appId: "1:1000372772813:web:4ef25d6ad044c954e06e84",
-   measurementId: "G-2Y830SVFWB"
+//secrets removed
 };
 
 // Initialize Firebase
