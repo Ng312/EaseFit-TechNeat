@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Feed</title>
+</head>
+<body>
+    <h1>Pose Detection Live Feed</h1>
+    
+    <!-- Video feed from the webcam -->
+    <img src="{{ url_for('video_feed') }}" width="1280">
+    
+    <h2>Retrieved Joint Angles from Firestore</h2>
+    <ul>
+        {% for joint, angle in reference_pose.items() %}
+            <li>{{ joint }}: {{ angle }}°</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

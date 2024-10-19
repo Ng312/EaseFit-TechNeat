@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select an Exercise and Book Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100%;
+            background: url('/static/asset/background1.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 800px; /* Adjusted for consistency */
+            margin: 150px auto 0 auto; /* Adjusted margin for vertical centering */
+            padding: 50px;
+            border-radius: 10px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #4c90af;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .exercise-option {
+            background-color: white;
+            border-radius: 50%;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .exercise-option:hover {
+            transform: scale(1.05);
+        }
+
+        .exercise-option img {
+            height: auto;
+            object-fit: contain;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: rgb(219, 238, 252);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            margin-left: 40px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        /* Doctor's Profile Section */
+        .doctor-profile, .appointment-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+
+        .doctor-profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .doctor-details {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .doctor-details p {
+            margin: 10px 0;
+        }
+
+        .doctor-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .submit-button {
+            background-color: #4c90af;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 27px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #3a7a9a;
+        }
+
+        .activities-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .explore-button {
+            background-color: #4c90af;
+            color: white;
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background-color: #3a7a9a;
+        }
+
+        /* Flexbox for Profile and Form */
+        .profile-and-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/asset/logo.png" alt="EaseFit Logo">
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <button class="back-button" onclick="window.location.href='/home'">←</button>
+    
+    <div class="container">
+        <h1>Select an Exercise</h1>
+        <div class="exercise-grid">
+            <div class="exercise-option">
+                <a href="/pose1-physio""><img src="/static/asset/physio_exe_1.png" alt="Exercise 1" style="width:400px;padding-top:50px;"></a>
+            </div>
+            <div class="exercise-option">
+                <a href="/pose2-physio"><img src="/static/asset/physio_exe_2.png" alt="Exercise 2" style="width:300px;padding-left:50px;"></a>
+            </div>
+            <div class="exercise-option">
+                <a href="/pose3-physio"><img src="/static/asset/physio_exe_3.png" alt="Exercise 3" style="width:150px;padding-left:100px;"></a>
+            </div>
+            <div class="exercise-option">
+                <a href="/pose4-physio"><img src="/static/asset/physio_exe_4.png" alt="Exercise 4" style="width:200px;padding-left:80px;"></a>
+            </div>
+        </div>
+
+        <div class="activities-section">
+            <h2>Schedule Your Appointment Today</h2>
+        </div>
+
+        <div class="profile-and-form">
+            <div class="doctor-profile">
+                <img src="/static/asset/doctor.png" alt="Doctor Profile Picture">
+                <div class="doctor-details">
+                    <p class="doctor-name">Dr. Jane Doe</p>
+                    <p>Graduated from: University of Health Sciences</p>
+                    <p>Position: Senior Physiotherapist</p>
+                    <p>Experience: 10+ years in physiotherapy and rehabilitation</p>
+                    <p>Specializes in sports injuries, musculoskeletal therapy, and post-surgery recovery.</p>
+                    <p>Languages: English, Spanish, and French</p>
+                    <p>Publications: Published 5 research papers on musculoskeletal rehabilitation</p>
+                </div>
+            </div>
+
+            <div id="appointment" class="appointment-form">
+                <h2>Book an Appointment</h2>
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reason">Reason for Visit</label>
+                        <select id="reason" name="reason" required>
+                            <option value="">Select a reason</option>
+                            <option value="checkup">Regular Check-up</option>
+                            <option value="illness">Illness</option>
+                            <option value="injury">Injury</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
